@@ -21,6 +21,10 @@ public abstract class Prenda{
     public void setColorSecundario(String colorSecundario){
         this.colorSecundario = colorSecundario;
     }
+
+    public void agregarColorSecundario(String colorSec){
+        this.setColorSecundario(colorSec);
+    }
 }
 
 
