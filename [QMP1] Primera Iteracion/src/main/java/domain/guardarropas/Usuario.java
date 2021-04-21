@@ -1,6 +1,5 @@
 package domain.guardarropas;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Usuario {

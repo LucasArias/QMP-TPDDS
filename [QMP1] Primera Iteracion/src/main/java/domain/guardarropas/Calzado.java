@@ -1,18 +1,19 @@
 package domain.guardarropas;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Calzado extends Prenda{
+    private List<String> tipos = Arrays.asList("Zapatillas", "Zapatos", "Sandalias", "Ojotas");
 
-    //No se me ocurre como poder evitar repetir logica en las 4 categorias de prenda
-
-    public Calzado(String tipoDePrenda, String material, String color, String colorSec){
-        super.setTipo(tipoDePrenda);
-        super.setMaterial(material);
-        super.setColorPrincipal(color);
-
-        if (colorSec == null) {
-            super.setColorSecundario("s/c");
+    public Calzado(String tipoDePrenda, String material, String color){
+        if(this.tipos.contains(tipoDePrenda)){
+            super.setTipo(tipoDePrenda);
+            super.setMaterial(material);
+            super.setColorPrincipal(color);
         } else {
-            super.setColorSecundario(colorSec);
+            throw new IllegalArgumentException("El Tipo de la Prenda no corresponde con su Categoria");
         }
     }
+
 }

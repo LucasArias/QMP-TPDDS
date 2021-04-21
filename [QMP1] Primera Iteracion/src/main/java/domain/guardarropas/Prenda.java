@@ -4,7 +4,7 @@ public abstract class Prenda{
     private String tipo;
     private String material;
     private String colorPrincipal;
-    private String colorSecundario;
+    private String colorSecundario = "S/C";
 
     public void setTipo(String tipo){
         this.tipo = tipo;
@@ -21,7 +21,6 @@ public abstract class Prenda{
     public void setColorSecundario(String colorSecundario){
         this.colorSecundario = colorSecundario;
     }
-
 }
 
 
