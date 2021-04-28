@@ -1,0 +1,93 @@
+@startuml
+class Usuario
+Usuario : String nombre
+Usuario : List<Prenda> prendas
+Usuario : List<Uniforme> uniformes
+Usuario : Usuario()
+Usuario : agregarPrenda()
+Usuario : sugerenciaUniforme()
+Usuario --> Prenda
+Usuario --> Uniforme
+
+class Uniforme
+Uniforme : Prenda prendaSuperior
+Uniforme : Prenda prendaInferior
+Uniforme : Prenda prendaCalzado
+Uniforme : Uniforme()
+Uniforme --> Institucion
+Uniforme --> Prenda
+
+class Institucion
+Institucion : Uniforme uniformeInstitucional
+Institucion : Institucion()
+
+enum Trama
+Trama : Lisa
+Trama : Rayada
+Trama : Lunares
+Trama : Cuadros
+Trama : Estampada
+
+abstract Prenda
+Prenda : String material
+Prenda : String colorPrincipal
+Prenda : String colorSecundario
+Prenda : Enum<Trama> tramaPrenda
+Prenda : setMaterial()
+Prenda : setColorPrincipal()
+Prenda : setColorSecundario()
+Prenda : agregarColorSecundario()
+Prenda : setTrama()
+Prenda <|-- ParteSuperior
+Prenda <|-- ParteInferior
+Prenda <|-- Calzado
+Prenda <|-- Accesorios
+Prenda --> Trama
+
+enum TiposParteSuperior
+TiposParteSuperior : Camisa
+TiposParteSuperior : CamisaMangaLarga
+TiposParteSuperior : CamisaMangaCorta
+TiposParteSuperior : Remera
+
+class ParteSuperior
+ParteSuperior : Enum<TiposParteSuperior> tipoDeParteSuperior
+ParteSuperior : ParteSuperior()
+ParteSuperior : setTipo()
+ParteSuperior --> TiposParteSuperior
+
+enum TiposParteInferior
+TiposParteInferior : Pantalon
+TiposParteInferior : Short
+TiposParteInferior : Bermudas
+
+class ParteInferior
+ParteInferior : Enum<TiposParteInferior> tipoDeParteInferior
+ParteInferior : ParteInferior()
+ParteInferior : setTipo()
+ParteInferior --> TiposParteInferior
+
+enum TiposCalzado
+TiposCalzado : Zapatillas
+TiposCalzado : Zapatos
+TiposCalzado : Sandalias
+TiposCalzado : Ojotas
+
+class Calzado
+Calzado : Enum<TiposCalzado> tipoDeCalzado
+Calzado : Calzado()
+Calzado : setTipo()
+Calzado --> TiposCalzado
+
+enum TiposDeAccesorios
+TiposDeAccesorios : Lentes
+TiposDeAccesorios : Cartera
+TiposDeAccesorios : Pañuelo
+
+class Accesorios
+Accesorios : Enum<TiposDeAccesorios> tipoDeAccesorio
+Accesorios : Accesorios()
+Accesorios : setTipo()
+Accesorios --> TiposDeAccesorios
+@enduml
+
