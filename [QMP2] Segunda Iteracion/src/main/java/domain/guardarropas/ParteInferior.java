@@ -12,6 +12,13 @@ enum TiposParteInferior {
 public class ParteInferior extends Prenda{
     private Enum<TiposParteInferior> tipoDeParteInferior;
 
+    public ParteInferior(Enum<TiposParteInferior> tipoDePrenda, String material, String color, Enum<Trama> trama) {
+        this.setTipo(tipoDePrenda);
+        super.setMaterial(material);
+        super.setColorPrincipal(color);
+        super.setTrama(trama);
+    }
+
     public ParteInferior(Enum<TiposParteInferior> tipoDePrenda, String material, String color) {
         this.setTipo(tipoDePrenda);
         super.setMaterial(material);
