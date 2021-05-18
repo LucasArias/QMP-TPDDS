@@ -1,13 +1,34 @@
 @startuml
+class Clima
+Clima : AccuWeatherAPI apiClima
+Clima : LocalDate ultimaFechallamada
+Clima : Boolean quedanMenosDe10Intentos
+Clima : Integer cantidadDeIntentos
+Clima : List<Map<String, Object>> ultimoLlamadoApi
+Clima : condicionClimaticaBuenosAires()
+Clima : puedeSerUtilizadaLaApi()
+Clima : quedanIntentos(LocalDate unaFecha)
+
+class Atuendo
+Atuendo : Prenda unaParteSuperior
+Atuendo : Prenda unaParteInferior
+Atuendo : Prenda unCalzado
+Atuendo : Prenda unAccesorio
+Atuendo : generarUnAtuendoClima()
+
 class Usuario
 Usuario : String nombre
 Usuario : List<Prenda> prendas
 Usuario : List<Uniforme> uniformes
+Usuario : Clima clima
 Usuario : Usuario()
 Usuario : agregarPrenda()
 Usuario : sugerenciaUniforme()
+Usuario : generarUnAtuendo()
 Usuario --> Prenda
 Usuario --> Uniforme
+Usuario --> Clima
+Usuario --> Atuendo
 
 class Uniforme
 Uniforme : Prenda prendaSuperior
@@ -90,4 +111,3 @@ Accesorios : Accesorios()
 Accesorios : setTipo()
 Accesorios --> TiposDeAccesorios
 @enduml
-
