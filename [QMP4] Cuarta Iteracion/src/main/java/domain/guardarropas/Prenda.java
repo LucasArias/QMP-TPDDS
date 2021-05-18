@@ -13,6 +13,7 @@ public abstract class Prenda{
     private String colorPrincipal;
     private String colorSecundario = "S/C";
     private Enum<Trama> tramaPrenda = Trama.Lisa;
+    private Integer temperaturaMaxima;
 
     public void setMaterial(String material){
         this.material = material;
@@ -33,6 +34,30 @@ public abstract class Prenda{
     public void setTrama(Enum<Trama> unaTrama) {
         this.tramaPrenda = unaTrama;
     }
+
+    public void setTemperaturaMaxima(Integer temperaturaMaxima) {
+        this.temperaturaMaxima = temperaturaMaxima;
+    }
+
+    public Boolean esTemperaturaAdecuada(Integer unaTemperatura) {
+        return unaTemperatura < temperaturaMaxima;
+    }
+
+    public boolean esSuperior() {
+        return false;
+    };
+
+    public boolean esInferior() {
+        return false;
+    };
+
+    public boolean esCalzado() {
+        return false;
+    };
+
+    public boolean esAccesorio() {
+        return false;
+    };
 }
 
 
