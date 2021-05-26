@@ -1,4 +1,16 @@
 @startuml
+class Guardarropas
+Guardarropas : List<Prenda> listaDePrendas
+Guardarropas : List<Prenda> prendasTentativasAgregar
+Guardarropas : List<Prenda> prendasTentativasQuitar
+Guardarropas : agregarPrenda()
+Guardarropas : obtenerPrendasGuardarropa()
+Guardarropas : agregarPrendaTentativaAgregar()
+Guardarropas : listarPrendasTentativasAgregar()
+Guardarropas : quitarSubmissionAgregar()
+Guardarropas : aceptarPropuestaAgregar()
+Guardarropas : deshacerAgregado()
+
 class Clima
 Clima : AccuWeatherAPI apiClima
 Clima : LocalDate ultimaFechallamada
@@ -18,7 +30,7 @@ Atuendo : generarUnAtuendoClima()
 
 class Usuario
 Usuario : String nombre
-Usuario : List<Prenda> prendas
+Usuario : List<Guardarropas> listaGuardarropas
 Usuario : List<Uniforme> uniformes
 Usuario : Clima clima
 Usuario : Usuario()
@@ -29,6 +41,7 @@ Usuario --> Prenda
 Usuario --> Uniforme
 Usuario --> Clima
 Usuario --> Atuendo
+Usuario --> Guardarropas
 
 class Uniforme
 Uniforme : Prenda prendaSuperior
